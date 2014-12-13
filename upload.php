@@ -70,10 +70,10 @@
 		    $uploadOk = 0;
 		}
 		 // Check file size
-		if ($_FILES["fileToUpload"]["size"] > 500000) {
+		/*if ($_FILES["fileToUpload"]["size"] > 500000) {
 		    echo "\nSorry, your file is too large.";
 		    $uploadOk = 0;
-		}
+		}*/
 
 
 		if ($uploadOk == 0) {
@@ -88,8 +88,8 @@
 			        echo "Sorry, there was an error uploading your file.";
 			    }
 			    //insert data into database
-			    $result = pg_prepare($conn, "insertPhoto", "INSERT into photo values{
-			    	default, $1, $2, $3, default};")or die('Prepare failed: ' . pg_last_error());
+			    $query = "INSERT INTO photo VALUES{default, $1, $2, $3, default}";
+			    $result = pg_prepare($conn, "insertPhoto", $query)or die('Prepare failed: ' . pg_last_error());
 				$result = pg_execute($conn, "insertPhoto", array($target_dir.($_FILES["fileToUpload"]["tmp_name"]), 34.567, -32.189))or die('Execute failed: ' . pg_last_error());
 			}
 			else{	echo "Could not connect to database";	}
