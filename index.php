@@ -35,8 +35,8 @@
 		<div class="header">
 			<div class="container, row">
 				<h1>Welcome to GeoPhotos!</h1>
-				<button class="btn btn-dark" id="upload" onclick="location.href = '/upload.php';" >Upload a photo!</button>
-				<button class="btn btn-dark" id="video" onclick="location.href = '/video.html';" >Watch a video!</button>
+				<button class="btn btn-dark" id="upload" onclick="location.href = 'upload.php';" >Upload a photo!</button>
+				<button class="btn btn-dark" id="video" onclick="location.href = 'video.html';" >Watch a video!</button>
 			<div class="map, map-canvas, container-fluid" id="media">	<!--Import google maps API-->
 				<div id='map-canvas' style="width: 100%; height: 500px">
 				</div>
