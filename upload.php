@@ -88,7 +88,7 @@
 			        echo "Sorry, there was an error uploading your file.";
 			    }
 			    //insert data into database
-			    $query = "INSERT INTO photo VALUES{default, $1, $2, $3, default}";
+			    $query = "INSERT INTO photo VALUES(default, $1, $2, $3, default);";
 			    $result = pg_prepare($conn, "insertPhoto", $query)or die('Prepare failed: ' . pg_last_error());
 				$result = pg_execute($conn, "insertPhoto", array($target_dir.($_FILES["fileToUpload"]["tmp_name"]), 34.567, -32.189))or die('Execute failed: ' . pg_last_error());
 			}
