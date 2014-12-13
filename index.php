@@ -15,9 +15,12 @@
 	          zoom:2
 	        };
 	        var map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
-	      }
-	      google.maps.event.addDomListener(window, 'load', initialize);
+	      	}
+	      	google.maps.event.addDomListener(window, 'load', initialize);
 
+	      	/*document.getElementById("upload").onclick = function () {
+        		location.href = "localhost:3000/upload.php";
+	   		}*/
     	</script>
 		<style>
 			.map-canvas{
@@ -29,10 +32,12 @@
 	</head>
 	
 	<body>
-		<div class="container, header">
-			<div>
+		<div class="header">
+			<div class="container, row">
 				<h1>Welcome to GeoPhotos!</h1>
-			<div class="map, map-canvas" id="media">	<!--Import google maps API-->
+				<button class="btn btn-dark" id="upload" onclick="location.href = '/upload.php';" >Upload a photo!</button>
+				<button class="btn btn-dark" id="video" onclick="location.href = '/video.html';" >Watch a video!</button>
+			<div class="map, map-canvas, container-fluid" id="media">	<!--Import google maps API-->
 				<div id='map-canvas' style="width: 100%; height: 500px">
 				</div>
 			</div>
