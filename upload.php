@@ -61,7 +61,7 @@
 
 	<body>
 		<div class="header text-center">
-			<div class="container">
+			<div class="container-fluid">
 				<h1>Upload a photo</h1>
 			</div>
 			<div>
@@ -104,7 +104,7 @@
 	    $check = getimagesize($_FILES["fileToUpload"]["tmp_name"]);
 	    //print_r($_FILES);
 	    if($check !== false) {
-	        echo "\nFile is an image - " . $check["mime"] . ".";
+	        //echo "\nFile is an image - " . $check["mime"] . ".";
 	        $uploadOk = 1;
 	    } else {
 	        echo "\nFile is not an image.";
@@ -123,7 +123,7 @@
 
 		//Check if image has location metadata
 		$array=exif_read_data($_FILES["fileToUpload"]["tmp_name"]);
-		print_r($array);
+		//print_r($array);
 
 		if ($uploadOk == 0) {
 	   		echo "\nSorry, your file was not uploaded.";
@@ -132,7 +132,7 @@
 			$conn = connectDB();
 			if($conn){
 			    if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
-			        echo "The file ". basename( $_FILES["fileToUpload"]["name"]). " has been uploaded.";
+			        echo "\nThe file ". basename( $_FILES["fileToUpload"]["name"]). " has been uploaded.";
 			    } else {
 			        echo "Sorry, there was an error uploading your file.";
 			    }
