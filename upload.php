@@ -60,16 +60,16 @@
 	</head>
 
 	<body>
-		<div class="header">
-			<div class="container, row">
+		<div class="header text-center">
+			<div class="container">
 				<h1>Upload a photo</h1>
 			</div>
 			<div>
 				<form action="upload.php" method="post" enctype="multipart/form-data">
-			    Select image to upload:
-			    <input type="file" name="fileToUpload" id="fileToUpload">
-			    <input type="submit" value="Upload Image" name="submit">
-			</form>
+				    <h4 class="sm">Select image to upload:</h4>
+				    <input class="file" type="file" name="fileToUpload" id="fileToUpload">
+				    <input type="submit" value="Upload Image" name="submit">
+				</form>
 			</div>
 			<div id="modal" class="modal">  
 			    <div class = "container modal-content" id="loginBox">
@@ -139,7 +139,7 @@
 			}
 			else{	echo "Could not connect to database";	}
 		}
-}
+	}
 
 
 if (!$loggedIn) {
