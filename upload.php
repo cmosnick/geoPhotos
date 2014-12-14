@@ -14,13 +14,7 @@
 	if ($action == 'do_login') {
 		handle_login();
 	}
-	/*if (!$loggedIn) {
-		//header("Location: login.php");
-		//call modal to pop up
-		echo "<script>openModal();</script>";
-		exit;
-	}
-	*/
+
 	function handle_login() {
 		//print_r($_POST);
 		$username = empty($_POST['uname']) ? '' : $_POST['uname'];
@@ -40,6 +34,7 @@
 
 	require("header.php");
 ?>
+<!--	Start HTML after heder	-->
 			<div class="row">
 				<div class="col-md-2"></div>
 				<div class="panel-body col-md-8">
@@ -78,7 +73,6 @@
 								else{	echo "Could not connect to database";	}
 							}
 							
-
 							function checkFile(){
 
 							    $check = getimagesize($_FILES["fileToUpload"]["tmp_name"]);
@@ -97,6 +91,7 @@
 								    echo "\nSorry, your file is too large.";
 								    return 0;
 								}
+								return 1;
 
 								//Check if image has location metadata
 								//$array=exif_read_data($_FILES["fileToUpload"]["tmp_name"]);

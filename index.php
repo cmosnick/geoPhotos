@@ -24,12 +24,9 @@
 
 <?php
 	if($_GET['action']=="getPhotos"){
-		$arr=["message"=>"yay"];
+		$arr=array("message"=>"yay");
 		echo arr;
 	}
-
-
-
 ?>
 
 <script type="text/javascript">
