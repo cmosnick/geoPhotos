@@ -137,7 +137,7 @@
 			        echo "Sorry, there was an error uploading your file.";
 			    }
 			    //insert data into database
-			    $query = "INSERT INTO photo VALUES(default, $1, $2, $3, default);";
+			    $query = "INSERT INTO geoPhotos.photo VALUES(default, $1, $2, $3, default);";
 			    $lat = rand(-90, 90);
 			    $long = rand(-180, 180);
 			    $result = pg_prepare($conn, "insertPhoto", $query)or die('Prepare failed: ' . pg_last_error());
