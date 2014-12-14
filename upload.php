@@ -13,13 +13,7 @@
 	// Check to see if the user has already logged in
 	$loggedIn = empty($_SESSION['loggedin']) ? false : $_SESSION['loggedin'];
 	
-	$action = empty($_POST['action']) ? '' : $_POST['action'];
-	
-	if ($action == 'do_login') {
-		handle_login();
-	}
-
-	
+	$action = empty($_POST['action']) ? '' : $_POST['action'];	
 ?>
 <!--	Start HTML after header	-->
 			<div class="row">
@@ -108,6 +102,9 @@
 				      	</form>
 				      	<div>
 				      		<?php
+				      			if ($action == 'do_login') {
+									handle_login();
+								}
 				      			function handle_login() {
 									//print_r($_POST);
 									$username = empty($_POST['uname']) ? '' : $_POST['uname'];
