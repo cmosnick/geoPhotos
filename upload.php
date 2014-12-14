@@ -102,6 +102,7 @@
 	// Check if image file is a actual image or fake image
 	if(isset($_POST["submit"])) {
 	    $check = getimagesize($_FILES["fileToUpload"]["tmp_name"]);
+	    //print_r($_FILES);
 	    if($check !== false) {
 	        echo "\nFile is an image - " . $check["mime"] . ".";
 	        $uploadOk = 1;
@@ -120,6 +121,9 @@
 		    $uploadOk = 0;
 		}*/
 
+		//Check if image has location metadata
+		$array=exif_read_data($_FILES["fileToUpload"]["tmp_name"]);
+		print_r($array);
 
 		if ($uploadOk == 0) {
 	   		echo "\nSorry, your file was not uploaded.";
@@ -134,8 +138,10 @@
 			    }
 			    //insert data into database
 			    $query = "INSERT INTO photo VALUES(default, $1, $2, $3, default);";
+			    $lat = rand(-90, 90);
+			    $long = rand(-180, 180);
 			    $result = pg_prepare($conn, "insertPhoto", $query)or die('Prepare failed: ' . pg_last_error());
-				$result = pg_execute($conn, "insertPhoto", array($target_dir.($_FILES["fileToUpload"]["tmp_name"]), 34.567, -32.189))or die('Execute failed: ' . pg_last_error());
+				$result = pg_execute($conn, "insertPhoto", array($target_dir.($_FILES["fileToUpload"]["tmp_name"]), $lat, $long))or die('Execute failed: ' . pg_last_error());
 			}
 			else{	echo "Could not connect to database";	}
 		}
