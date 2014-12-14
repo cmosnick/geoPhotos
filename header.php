@@ -12,9 +12,11 @@
 			<script type="text/javascript">
 				function openModal(){
 					$('#modal').modal();
+					console.dir("modal opened");
 				};
 				function closeModal(){
 					$('.modal').hidden();
+					console.dir("modal closed");
 				};
 			</script>
 			<style>
