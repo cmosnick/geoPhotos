@@ -9,9 +9,31 @@
 	// Check to see if the user has already logged in
 	$loggedIn = empty($_SESSION['loggedin']) ? false : $_SESSION['loggedin'];
 	
-	if (!$loggedIn) {
-		header("Location: login.php");
+	$action = empty($_POST['action']) ? '' : $_POST['action'];
+	
+	if ($action == 'do_login') {
+		handle_login();
+	}
+	/*if (!$loggedIn) {
+		//header("Location: login.php");
+		//call modal to pop up
+		echo "<script>openModal();</script>";
 		exit;
+	}
+	*/
+	function handle_login() {
+		//print_r($_POST);
+		$username = empty($_POST['uname']) ? '' : $_POST['uname'];
+		$password = empty($_POST['pwd']) ? '' : $_POST['pwd'];
+	
+		if ($username == "test" && $password == "pass") {
+			// Instead of setting a cookie, we'll set a key/value pair in $_SESSION
+			$_SESSION['loggedin'] = $username;
+			header("Location: upload.php");
+			exit;
+		} else {
+			$error = 'Login failed.  Please enter your username and password.';
+		}		
 	}
 	require("phpfuncs.php");
 ?>
@@ -23,9 +45,15 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<link rel="stylesheet" type="text/css" href="startbootstrap-stylish-portfolio-1.0.0/css/bootstrap.min.css">
 		<link rel="stylesheet" type="text/css" href="startbootstrap-stylish-portfolio-1.0.0/css/stylish-portfolio.css">
+
 		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-		<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAz3ZJzghImC8_vAl5cYYewtQyjDY0V6oM"></script>
-		<script type="text/javascript"></script>
+		<script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js"></script>
+		<script type="text/javascript" src="startbootstrap-stylish-portfolio-1.0.0/js/bootstrap.min.js"></script>		<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAz3ZJzghImC8_vAl5cYYewtQyjDY0V6oM"></script>
+		<script type="text/javascript">
+			function openModal(){
+				$('#modal').modal();
+			}
+		</script>
 		<style>
 		
 		</style>
@@ -43,6 +71,23 @@
 			    <input type="submit" value="Upload Image" name="submit">
 			</form>
 			</div>
+			<div id="modal" class="modal">  
+			    <div class = "container modal-content" id="loginBox">
+			      	<h3 class="modal-header">Please log in to upload a photo</h3>
+			      	<form class="modal-body"name="Login" action="upload.php" method="POST" role="form">
+			      		<input type="hidden" name="action" value="do_login">
+			        	<div class="form-group">
+			         		<label for="uname">Username:</label>
+			          		<input type="" class="form-control" name ="uname" placeholder="Enter username">
+			        	</div>
+			        	<div class="form-group">
+			          		<label for="pwd">Password:</label>
+			          		<input type="password" class="form-control" name="pwd" placeholder="Enter password">
+			        	</div>
+			        	<button type="submit" name="submit" value="submit" class="btn btn-dark-hover">Submit</button>
+			      	</form>
+				</div>  
+			</div>  
 			<div id="footer">
 				<p>Contact: crmmx2@mail.missouri.edu</p>
 			</div>
@@ -95,5 +140,13 @@
 			else{	echo "Could not connect to database";	}
 		}
 }
+
+
+if (!$loggedIn) {
+		//header("Location: login.php");
+		//call modal to pop up
+		echo "<script>openModal();</script>";
+		exit;
+	}
 
 ?>
