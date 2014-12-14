@@ -9,7 +9,14 @@
 			<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 			<script src="startbootstrap-stylish-portfolio-1.0.0/js/bootstrap.min.js"></script>
 			<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAz3ZJzghImC8_vAl5cYYewtQyjDY0V6oM"></script>
-			<script type="text/javascript"></script>
+			<script type="text/javascript">
+				function openModal(){
+					$('#modal').modal();
+				};
+				function closeModal(){
+					$('#modal').hide();
+				};
+			</script>
 			<style>
 
 			.panel-header{
