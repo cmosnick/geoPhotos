@@ -32,7 +32,6 @@
 				margin: 20px;
 			}
 			<?php
-
 				echo $customStyle;
 			?>
 			</style>

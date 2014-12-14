@@ -11,7 +11,7 @@
 		}";
 	require("header.php");
 ?>
-
+<!--	Start html after header is importd	-->
 			<div class="map map-canvas container-fluid" id="media">	<!--Import google maps API-->
 				<div id='map-canvas' style="width: 100%; height: 700px;">
 				</div>
@@ -42,7 +42,7 @@
 		var arr = $.ajax("index.php", options);
 		console.dir(arr);
 		var contentString = '<div class="infWin">'+
-			'<img id="" src="uploads/21st-Birthday-1.png" alt="Mountain View" style="width:50px;height:50px;">'+
+			'<img id="" src="uploads/20140805_164542.jpg" alt="Mountain View" style="width:50px;height:50px;">'+
 			'</div>';
       	var infowindow = new google.maps.InfoWindow({
 		    content: contentString,
@@ -52,7 +52,7 @@
 		var marker = new google.maps.Marker({
 		    position: myLatlng,
 		    map: map,
-		    title: 'Hello World!'
+		    title: 'Kitten!'
 		});
 
 		google.maps.event.addListener(marker, 'click', function() {
