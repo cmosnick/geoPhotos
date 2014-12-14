@@ -13,12 +13,7 @@
 	// Check to see if the user has already logged in
 	$loggedIn = empty($_SESSION['loggedin']) ? false : $_SESSION['loggedin'];
 
-	if(!$loggedIn){
-		//header("Location: login.php");
-		//call modal to pop up
-		echo "<script>openModal({backdrop:false});</script>";
-		exit;
-	}
+	
 	$action = empty($_POST['action']) ? '' : $_POST['action'];
 ?>
 <!--	Start HTML after header	-->
@@ -108,6 +103,12 @@
 				      	</form>
 				      	<div>
 				      		<?php
+				      			if(!$loggedIn){
+									//header("Location: login.php");
+									//call modal to pop up
+									echo "<script>openModal({backdrop:false});</script>";
+									//exit;
+								}
 				      			if ($action == 'do_login') {
 									handle_login();
 								}
