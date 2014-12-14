@@ -5,6 +5,10 @@
 		header("Location: error.php");
 		exit;
 	}
+	require("phpfuncs.php");
+	$pageTitle="Upload a photo";
+
+	require("header.php");
 
 	// Check to see if the user has already logged in
 	$loggedIn = empty($_SESSION['loggedin']) ? false : $_SESSION['loggedin'];
@@ -15,10 +19,7 @@
 		handle_login();
 	}
 
-	require("phpfuncs.php");
-	$pageTitle="Upload a photo";
-
-	require("header.php");
+	
 ?>
 <!--	Start HTML after header	-->
 			<div class="row">
@@ -90,43 +91,43 @@
 			</div>
 			<div class="row">
 				<div class="col-md-2"></div>
-					<div id="modal" class="modal col-md-8">  
-					    <div class = "container modal-content col-md-4" id="loginBox">
-					      	<h3 class="modal-header">Please log in to upload a photo</h3>
-					      	<form class="modal-body"name="Login" action="upload.php" method="POST" role="form">
-					      		<input type="hidden" name="action" value="do_login">
-					        	<div class="form-group">
-					         		<label for="uname">Username:</label>
-					          		<input type="" class="form-control" name ="uname" placeholder="Enter username">
-					        	</div>
-					        	<div class="form-group">
-					          		<label for="pwd">Password:</label>
-					          		<input type="password" class="form-control" name="pwd" placeholder="Enter password">
-					        	</div>
-					        	<button type="submit" name="submit" value="submit" class="btn btn-dark-hover">Submit</button>
-					      	</form>
-					      	<div>
-					      		<?php
-					      			function handle_login() {
-										//print_r($_POST);
-										$username = empty($_POST['uname']) ? '' : $_POST['uname'];
-										$password = empty($_POST['pwd']) ? '' : $_POST['pwd'];
-									
-										if ($username == "test" && $password == "pass") {
-											// Instead of setting a cookie, we'll set a key/value pair in $_SESSION
-											$_SESSION['loggedin'] = $username;
-											closeModal();
-											exit;
-										} else {
-											$error = "<div class='alert-danger'>Login failed.  Please enter your username and password.</div>";
-											echo $error;
-										}		
-									}
-					      		?>
-					      	</div>
-						</div> 
-						<div class="col-md-4"> </div> 
-					</div>  
+				<div id="modal" class="modal col-md-8">  
+				    <div class = "container modal-content col-md-4" id="loginBox">
+				      	<h3 class="modal-header">Please log in to upload a photo</h3>
+				      	<form class="modal-body"name="Login" action="upload.php" method="POST" role="form">
+				      		<input type="hidden" name="action" value="do_login">
+				        	<div class="form-group">
+				         		<label for="uname">Username:</label>
+				          		<input type="" class="form-control" name ="uname" placeholder="Enter username">
+				        	</div>
+				        	<div class="form-group">
+				          		<label for="pwd">Password:</label>
+				          		<input type="password" class="form-control" name="pwd" placeholder="Enter password">
+				        	</div>
+				        	<button type="submit" name="submit" value="submit" class="btn btn-dark-hover">Submit</button>
+				      	</form>
+				      	<div>
+				      		<?php
+				      			function handle_login() {
+									//print_r($_POST);
+									$username = empty($_POST['uname']) ? '' : $_POST['uname'];
+									$password = empty($_POST['pwd']) ? '' : $_POST['pwd'];
+								
+									if ($username == "test" && $password == "pass") {
+										// Instead of setting a cookie, we'll set a key/value pair in $_SESSION
+										$_SESSION['loggedin'] = $username;
+										closeModal();
+										exit;
+									} else {
+										$error = "<div class='alert-danger'>Login failed.  Please enter your username and password.</div>";
+										echo $error;
+									}		
+								}
+				      		?>
+				      	</div>
+					</div> 
+					<div class="col-md-4"> </div> 
+				</div>  
 				<div class="col-md-2"></div>
 				</div>
 			<div class="col-md-12"id="footer">
