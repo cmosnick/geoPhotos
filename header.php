@@ -30,7 +30,6 @@
 			}
 			.video{
 				margin: 20px;
-				
 			}
 			<?php
 
