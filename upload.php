@@ -15,20 +15,6 @@
 		handle_login();
 	}
 
-	function handle_login() {
-		//print_r($_POST);
-		$username = empty($_POST['uname']) ? '' : $_POST['uname'];
-		$password = empty($_POST['pwd']) ? '' : $_POST['pwd'];
-	
-		if ($username == "test" && $password == "pass") {
-			// Instead of setting a cookie, we'll set a key/value pair in $_SESSION
-			$_SESSION['loggedin'] = $username;
-			header("Location: upload.php");
-			exit;
-		} else {
-			$error = 'Login failed.  Please enter your username and password.';
-		}		
-	}
 	require("phpfuncs.php");
 	$pageTitle="Upload a photo";
 
@@ -119,6 +105,25 @@
 					        	</div>
 					        	<button type="submit" name="submit" value="submit" class="btn btn-dark-hover">Submit</button>
 					      	</form>
+					      	<div>
+					      		<?php
+					      			function handle_login() {
+										//print_r($_POST);
+										$username = empty($_POST['uname']) ? '' : $_POST['uname'];
+										$password = empty($_POST['pwd']) ? '' : $_POST['pwd'];
+									
+										if ($username == "test" && $password == "pass") {
+											// Instead of setting a cookie, we'll set a key/value pair in $_SESSION
+											$_SESSION['loggedin'] = $username;
+											closeModal();
+											exit;
+										} else {
+											$error = "<div class='alert-danger'>Login failed.  Please enter your username and password.</div>";
+											echo $error;
+										}		
+									}
+					      		?>
+					      	</div>
 						</div> 
 						<div class="col-md-4"> </div> 
 					</div>  
@@ -133,7 +138,10 @@
 <script type="text/javascript">
 	function openModal(){
 		$('#modal').modal();
-	}
+	};
+	function closeModal(){
+		$('#modal').hide();
+	};
 </script>
 
 
