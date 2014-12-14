@@ -15,7 +15,7 @@
 					console.dir("modal opened");
 				};
 				function closeModal(){
-					$('#modal').hide();
+					$('#modal').modal('hide');
 					console.dir("modal closed");
 				};
 			</script>
