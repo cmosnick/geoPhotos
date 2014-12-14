@@ -84,7 +84,7 @@
 				</div>
 				<div class="col-md-2"></div>
 			</div>
-			<div class="row">
+			<div class="row container-fluid">
 				<div id="modal"class="modal col-md-2"></div>
 				<div id="modal" class="modal col-md-8">  
 				    <div class = "container modal-content col-md-8" id="loginBox">
