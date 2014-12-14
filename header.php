@@ -14,7 +14,7 @@
 					$('#modal').modal('show');
 				};
 				function closeModal(){
-					$('#modal').hide();
+					$('#modal').modal('hide');
 				};
 			</script>
 			<style>
