@@ -106,7 +106,7 @@
 				      			if(!$loggedIn){
 									//header("Location: login.php");
 									//call modal to pop up
-									echo "<script>openModal({backdrop:false});</script>";
+									echo "<script>openModal();</script>";
 									//exit;
 								}
 				      			if ($action == 'do_login') {
@@ -145,11 +145,5 @@
 
 <?php
 
-if (!$loggedIn) {
-		//header("Location: login.php");
-		//call modal to pop up
-		echo "<script>openModal({backdrop:false});</script>";
-		exit;
-	}
 
 ?>
