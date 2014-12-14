@@ -11,10 +11,10 @@
 			<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAz3ZJzghImC8_vAl5cYYewtQyjDY0V6oM"></script>
 			<script type="text/javascript">
 				function openModal(){
-					$('#modal').modal('show');
+					$('#modal').modal();
 				};
 				function closeModal(){
-					$('#modal').modal('hide');
+					$('#modal').hide();
 				};
 			</script>
 			<style>
