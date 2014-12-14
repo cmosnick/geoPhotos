@@ -85,7 +85,7 @@
 				<div class="col-md-2"></div>
 			</div>
 			<div class="row">
-				<div class="modal col-md-2"></div>
+				<div id="modal"class="modal col-md-2"></div>
 				<div id="modal" class="modal col-md-8">  
 				    <div class = "container modal-content col-md-8" id="loginBox">
 				      	<h3 class="modal-header">Please log in to upload a photo</h3>
@@ -132,7 +132,7 @@
 					</div> 
 					<div class="col-md-2"> </div> 
 				</div>  
-				<div class=" modal col-md-2"></div>
+				<div id="modal" class=" modal col-md-2"></div>
 				</div>
 			<div class="col-md-12"id="footer">
 				<p>Contact: crmmx2@mail.missouri.edu</p>
