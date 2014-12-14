@@ -34,7 +34,7 @@
 
 	require("header.php");
 ?>
-<!--	Start HTML after heder	-->
+<!--	Start HTML after header	-->
 			<div class="row">
 				<div class="col-md-2"></div>
 				<div class="panel-body col-md-8">
@@ -53,15 +53,15 @@
 							if(isset($_POST["submit"])) $uploadOk = checkFile();
 
 							if ($uploadOk == 0) {
-						   		echo "\nSorry, your file was not uploaded.";
+						   		echo "<div class='alert-danger'>Sorry, your file was not uploaded.</div>";
 							// if everything is ok, try to upload file
 							} else {
 								$conn = connectDB();
 								if($conn){
 								    if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
-								        echo "\nThe file ". basename( $_FILES["fileToUpload"]["name"]). " has been uploaded.";
+								        echo "<div class='alert-success'>The file ". basename( $_FILES["fileToUpload"]["name"]). " has been uploaded.</div>";
 								    } else {
-								        echo "Sorry, there was an error uploading your file.";
+								        echo "<div class='alert-danger'>Sorry, there was an error uploading your file.</div>";
 								    }
 								    //insert data into database
 								    $query = "INSERT INTO geoPhotos.photo VALUES(default, $1, $2, $3, default);";
@@ -70,7 +70,7 @@
 								    $result = pg_prepare($conn, "insertPhoto", $query)or die('Prepare failed: ' . pg_last_error());
 									$result = pg_execute($conn, "insertPhoto", array($target_dir.($_FILES["fileToUpload"]["tmp_name"]), $lat, $long))or die('Execute failed: ' . pg_last_error());
 								}
-								else{	echo "Could not connect to database";	}
+								else{	echo "<div class='alert-danger'>Could not connect to database</div>";	}
 							}
 							
 							function checkFile(){
@@ -78,17 +78,17 @@
 							    $check = getimagesize($_FILES["fileToUpload"]["tmp_name"]);
 							    //print_r($_FILES);
 							    if($check == false) {
-							        echo "\nFile is not an image.";
+							        echo "<div class='alert-danger'>File is not an image.</div>";
 							        return 0;
 							    }
 							   	// Check if file already exists
 								if (file_exists($target_file)) {
-								    echo "\nSorry, file already exists.";
+								    echo "<div class='alert-danger'>Sorry, file already exists.</div>";
 								    return 0;
 								}
 								 // Check file size
 								if ($_FILES["fileToUpload"]["size"] > 5000000) {
-								    echo "\nSorry, your file is too large.";
+								    echo "<div class='alert-danger'>Sorry, your file is too large.</div>";
 								    return 0;
 								}
 								return 1;
