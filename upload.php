@@ -117,7 +117,7 @@
 									if ($username == "test" && $password == "pass") {
 										// Instead of setting a cookie, we'll set a key/value pair in $_SESSION
 										$_SESSION['loggedin'] = $username;
-										closeModal();
+										echo "<script>closeModal();</script>";
 										exit;
 									} else {
 										$error = "<div class='alert-danger'>Login failed.  Please enter your username and password.</div>";
