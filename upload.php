@@ -148,7 +148,7 @@
 if (!$loggedIn) {
 		//header("Location: login.php");
 		//call modal to pop up
-		echo "<script>openModal();</script>";
+		echo "<script>openModal({backdrop:false});</script>";
 		exit;
 	}
 
