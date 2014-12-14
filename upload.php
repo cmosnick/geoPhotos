@@ -84,22 +84,21 @@
 				</div>
 				<div class="col-md-2"></div>
 				<div class="row container-fluid">
-				    <div id="modal" class="modal">  
-		 			    <div class = "container modal-content" id="loginBox">
-		 			      	<h3 class="modal-header">Please log in to upload a photo</h3>
-		 			      	<form class="modal-body"name="Login" action="upload.php" method="POST" role="form">
-		 			      		<input type="hidden" name="action" value="do_login">
-		 			        	<div class="form-group">
-		 			         		<label for="uname">Username:</label>
-		 			          		<input type="" class="form-control" name ="uname" placeholder="Enter username">
-		 			        	</div>
-		 			        	<div class="form-group">
-		 			          		<label for="pwd">Password:</label>
-		 			          		<input type="password" class="form-control" name="pwd" placeholder="Enter password">
-		 			        	</div>
-		 			        	<button type="submit" name="submit" value="submit" class="btn btn-dark-hover">Submit</button>
-		 			      	</form>
-		 				  
+				    <div class = "container-fluid modal-content col-md-8" id="loginBox">
+				      	<h3 class="modal-header">Please log in to upload a photo</h3>
+				      	<form class="modal-body"name="Login" action="upload.php" method="POST" role="form">
+				      		<input type="hidden" name="action" value="do_login">
+				        	<div class="form-group">
+				         		<label for="uname">Username:</label>
+				          		<input type="" class="form-control" name ="uname" placeholder="Enter username">
+				        	</div>
+				        	<div class="form-group">
+				          		<label for="pwd">Password:</label>
+				          		<input type="password" class="form-control" name="pwd" placeholder="Enter password">
+				        	</div>
+				        	<button type="submit" name="submit" value="submit" class="btn btn-dark-hover">Submit</button>
+				      	</form>
+				      	<div>
 				      		<?php
 				      			if(!$loggedIn){
 									//header("Location: login.php");
@@ -126,13 +125,12 @@
 									}		
 								}
 				      		?>
-				      	</div>  
- 					</div>
+				      	</div>
+					</div> 
 				</div>
 			<div class="col-md-12"id="footer">
 				<p>Contact: crmmx2@mail.missouri.edu</p>
 			</div>
-		</div>
 	</body>
 </html>
 
