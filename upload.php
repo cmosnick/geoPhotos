@@ -85,7 +85,6 @@
 				<div class="col-md-2"></div>
 			</div>
 			<div class="row container-fluid">
-				<div class="modal fade">
 				    <div class = "container-fluid modal-content col-md-8" id="loginBox">
 				      	<h3 class="modal-header">Please log in to upload a photo</h3>
 				      	<form class="modal-body"name="Login" action="upload.php" method="POST" role="form">
@@ -129,7 +128,6 @@
 				      		?>
 				      	</div>
 					</div> 
-				</div>
 					<div class="col-md-2"> </div> 
 			<div class="col-md-12"id="footer">
 				<p>Contact: crmmx2@mail.missouri.edu</p>
