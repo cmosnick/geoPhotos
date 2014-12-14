@@ -85,7 +85,7 @@
 				<div class="col-md-2"></div>
 			</div>
 			<div class="row container-fluid">
-				    <div class = "modal container-fluid modal-content col-md-8" id="loginBox">
+				    <div class = "container-fluid modal-content col-md-8" id="loginBox">
 				      	<h3 class="modal-header">Please log in to upload a photo</h3>
 				      	<form class="modal-body"name="Login" action="upload.php" method="POST" role="form">
 				      		<input type="hidden" name="action" value="do_login">
