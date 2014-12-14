@@ -133,14 +133,7 @@
 	</body>
 </html>
 
-<script type="text/javascript">
-	function openModal(){
-		$('#modal').modal();
-	};
-	function closeModal(){
-		$('#modal').hide();
-	};
-</script>
+
 
 
 <?php
